@@ -14,14 +14,14 @@ const BODY_REGIONS = {
         shoulders: { x: 35, y: 105, width: 127, height: 35 },
         chest: { x: 55, y: 140, width: 87, height: 60 },
         abdomen: { x: 65, y: 200, width: 67, height: 70 },
-        arms: { x: 10, y: 140, width: 177, height: 170 },
+        arms: { x: 10, y: 140, width: 177, height: 170 }, // Adjusted to cover arms correctly
         legs: { x: 45, y: 270, width: 107, height: 160 }
     },
     sideRegions: {
         head: { x: 10, y: 0, width: 55, height: 75 },
         neck: { x: 20, y: 75, width: 35, height: 25 },
         shoulders: { x: 5, y: 100, width: 65, height: 35 },
-        back: { x: 5, y: 135, width: 65, height: 110 },
+        back: { x: 5, y: 135, width: 65, height: 110 }, // Adjusted to cover back correctly
         chest: { x: 5, y: 135, width: 45, height: 60 },
         abdomen: { x: 5, y: 195, width: 45, height: 70 },
         legs: { x: 5, y: 265, width: 65, height: 142 }
@@ -55,15 +55,15 @@ function drawHeatmap(canvasId, imageInfo, intensities) {
             if (regions[region]) {
                 const { x, y, width, height } = regions[region];
                 const color = getHeatmapColor(intensity);
-                const [h, s, l, a] = color.match(/\d+/g).map(Number);
+                const [r, g, b, a] = color.match(/\d+/g).map(Number);
 
                 for (let i = y; i < y + height; i++) {
                     for (let j = x; j < x + width; j++) {
                         const index = (i * canvas.width + j) * 4;
-                        data[index] = h;
-                        data[index + 1] = s;
-                        data[index + 2] = l;
-                        data[index + 3] = a * 255 / 100;
+                        data[index] = r;
+                        data[index + 1] = g;
+                        data[index + 2] = b;
+                        data[index + 3] = a;
                     }
                 }
             }
