@@ -29,15 +29,10 @@ const BODY_REGIONS = {
 };
 
 function getHeatmapColor(intensity) {
-    // Ensure intensity is within bounds
-    intensity = Math.max(0, Math.min(intensity, 1));
-    
-    // Convert intensity to a hue value
-    // 120 degrees (green) for low intensity and 0 degrees (red) for high intensity
     const hue = (1 - intensity) * 120;
+    console.log(hue); // Should print 60
     
-    // Return the color in hsla format
-    return `hsla(${hue}, 100%, 50%, 0.9)`;
+    return `hsla(${hue}, 100%, 50%, 0.9)`; // Corrected line
 }
 
 // Function to draw heatmap on canvas
