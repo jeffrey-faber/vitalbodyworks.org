@@ -31,7 +31,7 @@
 
         // Function to apply heatmap color based on intensity
         function getHeatmapColor(intensity) {
-            const hue = ((1 - intensity) * 120).toString(10);
+            const hue = (intensity * 120).toString(10);
             return `hsla(${hue}, 100%, 50%, 0.9)`;
         }
 
