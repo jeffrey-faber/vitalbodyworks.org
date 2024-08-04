@@ -1,10 +1,10 @@
 
         // Constants for image paths and sizes
         const BODY_IMAGES = {
-            front: { src: 'images/frontBody.png', width: 197, height: 430 },
-            back: { src: 'images/backBody.png', width: 197, height: 430 },
-            left: { src: 'images/leftBody.png', width: 75, height: 407 },
-            right: { src: 'images/rightBody.png', width: 75, height: 407 }
+            front: { src: '/mnt/data/image.png', width: 197, height: 430 },
+            back: { src: '/mnt/data/image.png', width: 197, height: 430 },
+            left: { src: '/mnt/data/image.png', width: 75, height: 407 },
+            right: { src: '/mnt/data/image.png', width: 75, height: 407 }
         };
 
         // Body regions and their corresponding coordinates (adjusted for outline)
@@ -40,7 +40,7 @@
             // Return the color in hsla format
             return `hsla(${hue}, 100%, 50%, 0.9)`;
         }
-        
+
         // Function to draw heatmap on canvas
         function drawHeatmap(canvasId, imageInfo, intensities) {
             const canvas = document.getElementById(canvasId);
