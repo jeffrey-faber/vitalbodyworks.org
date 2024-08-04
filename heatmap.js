@@ -6,25 +6,25 @@ const BODY_IMAGES = {
     right: { src: 'images/rightBody.png', width: 75, height: 407 }
   };
   
-  // Body regions and their corresponding coordinates (adjusted for these images)
+  // Body regions and their corresponding coordinates (adjusted for outline)
   const BODY_REGIONS = {
     frontBackRegions: {
-      head: { x: 98, y: 20, width: 1, height: 1 },
-      neck: { x: 98, y: 80, width: 1, height: 1 },
-      shoulders: { x: 60, y: 110, width: 1, height: 1 },
-      chest: { x: 98, y: 150, width: 1, height: 1 },
-      abdomen: { x: 98, y: 220, width: 1, height: 1 },
-      arms: { x: 30, y: 200, width: 1, height: 1 },
-      legs: { x: 98, y: 300, width: 1, height: 1 }
+      head: { x: 60, y: 0, width: 77, height: 80 },
+      neck: { x: 75, y: 80, width: 47, height: 25 },
+      shoulders: { x: 35, y: 105, width: 127, height: 35 },
+      chest: { x: 55, y: 140, width: 87, height: 60 },
+      abdomen: { x: 65, y: 200, width: 67, height: 70 },
+      arms: { x: 15, y: 140, width: 40, height: 170 },
+      legs: { x: 45, y: 270, width: 107, height: 160 }
     },
     sideRegions: {
-      head: { x: 37, y: 20, width: 1, height: 1 },
-      neck: { x: 37, y: 80, width: 1, height: 1 },
-      shoulders: { x: 37, y: 110, width: 1, height: 1 },
-      back: { x: 50, y: 200, width: 1, height: 1 },
-      chest: { x: 25, y: 150, width: 1, height: 1 },
-      abdomen: { x: 25, y: 220, width: 1, height: 1 },
-      legs: { x: 37, y: 300, width: 1, height: 1 }
+      head: { x: 10, y: 0, width: 55, height: 75 },
+      neck: { x: 20, y: 75, width: 35, height: 25 },
+      shoulders: { x: 5, y: 100, width: 65, height: 35 },
+      back: { x: 20, y: 135, width: 50, height: 110 },
+      chest: { x: 5, y: 135, width: 45, height: 60 },
+      abdomen: { x: 5, y: 195, width: 45, height: 70 },
+      legs: { x: 5, y: 265, width: 65, height: 142 }
     }
   };
   
@@ -34,57 +34,7 @@ const BODY_IMAGES = {
     return `hsla(${hue}, 100%, 50%, 0.5)`;
   }
   
-  // Flood fill algorithm
-  function floodFill(imageData, x, y, fillColor) {
-    const width = imageData.width;
-    const height = imageData.height;
-    const stack = [[x, y]];
-    const baseColor = getPixelColor(imageData, x, y);
-    const fillColorRgb = hexToRgb(fillColor);
-  
-    while (stack.length > 0) {
-      const [x, y] = stack.pop();
-      if (x < 0 || x >= width || y < 0 || y >= height) continue;
-      if (colorsMatch(getPixelColor(imageData, x, y), baseColor)) {
-        setPixelColor(imageData, x, y, fillColorRgb);
-        stack.push([x - 1, y], [x + 1, y], [x, y - 1], [x, y + 1]);
-      }
-    }
-  }
-  
-  // Helper functions for flood fill
-  function getPixelColor(imageData, x, y) {
-    const index = (y * imageData.width + x) * 4;
-    return {
-      r: imageData.data[index],
-      g: imageData.data[index + 1],
-      b: imageData.data[index + 2],
-      a: imageData.data[index + 3]
-    };
-  }
-  
-  function setPixelColor(imageData, x, y, color) {
-    const index = (y * imageData.width + x) * 4;
-    imageData.data[index] = color.r;
-    imageData.data[index + 1] = color.g;
-    imageData.data[index + 2] = color.b;
-    imageData.data[index + 3] = color.a;
-  }
-  
-  function colorsMatch(color1, color2) {
-    return color1.r === color2.r && color1.g === color2.g && color1.b === color2.b && color1.a === color2.a;
-  }
-  
-  function hexToRgb(hex) {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-      r: parseInt(result[1], 16),
-      g: parseInt(result[2], 16),
-      b: parseInt(result[3], 16),
-      a: 128
-    } : null;
-  }
-  
+  // Function to draw heatmap on canvas
   function drawHeatmap(canvasId, imageInfo, intensities) {
     const canvas = document.getElementById(canvasId);
     const ctx = canvas.getContext('2d');
@@ -96,20 +46,27 @@ const BODY_IMAGES = {
     img.onload = function() {
       ctx.drawImage(img, 0, 0);
   
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);   
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
   
       const regions = imageInfo.width > 100 ? BODY_REGIONS.frontBackRegions : BODY_REGIONS.sideRegions;
   
       for (const [region, intensity] of Object.entries(intensities)) {
         if (regions[region]) {
-          const { x, y } = regions[region];
+          const { x, y, width, height } = regions[region];
           const color = getHeatmapColor(intensity);
+          const [r, g, b, a] = color.match(/\d+/g).map(Number);
   
-          // Check for transparency before applying heatmap color
-          const originalColor = getPixelColor(imageData, x, y);
-          console.log("Region:", region, "Intensity:", intensity, "Base Color:", baseColor);
-          if (originalColor.a !== 0) { // Not transparent
-            floodFill(imageData, x, y, color);
+          for (let i = y; i < y + height; i++) {
+            for (let j = x; j < x + width; j++) {
+              const index = (i * canvas.width + j) * 4;
+              if (data[index + 3] === 0) { // Check if pixel is transparent
+                data[index] = r;
+                data[index + 1] = g;
+                data[index + 2] = b;
+                data[index + 3] = a;
+              }
+            }
           }
         }
       }
