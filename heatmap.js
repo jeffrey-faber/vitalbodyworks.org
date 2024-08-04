@@ -29,12 +29,18 @@
             }
         };
 
-        // Function to apply heatmap color based on intensity
         function getHeatmapColor(intensity) {
-            const hue = (intensity * 120).toString(10);
+            // Ensure intensity is within bounds
+            intensity = Math.max(0, Math.min(intensity, 1));
+            
+            // Convert intensity to a hue value
+            // 120 degrees (green) for low intensity and 0 degrees (red) for high intensity
+            const hue = (1 - intensity) * 120;
+            
+            // Return the color in hsla format
             return `hsla(${hue}, 100%, 50%, 0.9)`;
         }
-
+        
         // Function to draw heatmap on canvas
         function drawHeatmap(canvasId, imageInfo, intensities) {
             const canvas = document.getElementById(canvasId);
