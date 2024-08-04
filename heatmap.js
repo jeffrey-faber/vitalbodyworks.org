@@ -1,9 +1,9 @@
 // Constants for image paths and sizes
 const BODY_IMAGES = {
-    front: { src: 'images/frontBody.png', width: 197, height: 430 },
-    back: { src: 'images/backBody.png', width: 197, height: 430 },
-    left: { src: 'images/leftBody.png', width: 75, height: 407 },
-    right: { src: 'images/rightBody.png', width: 75, height: 407 }
+    front: { src: '/mnt/data/image.png', width: 197, height: 430 },
+    back: { src: '/mnt/data/image.png', width: 197, height: 430 },
+    left: { src: '/mnt/data/image.png', width: 75, height: 407 },
+    right: { src: '/mnt/data/image.png', width: 75, height: 407 }
 };
 
 // Body regions and their corresponding coordinates (adjusted for outline)
@@ -14,14 +14,14 @@ const BODY_REGIONS = {
         shoulders: { x: 35, y: 105, width: 127, height: 35 },
         chest: { x: 55, y: 140, width: 87, height: 60 },
         abdomen: { x: 65, y: 200, width: 67, height: 70 },
-        arms: { x: 10, y: 140, width: 177, height: 170 }, // Adjusted to cover arms correctly
+        arms: { x: 10, y: 140, width: 177, height: 170 },
         legs: { x: 45, y: 270, width: 107, height: 160 }
     },
     sideRegions: {
         head: { x: 10, y: 0, width: 55, height: 75 },
         neck: { x: 20, y: 75, width: 35, height: 25 },
         shoulders: { x: 5, y: 100, width: 65, height: 35 },
-        back: { x: 5, y: 135, width: 65, height: 110 }, // Adjusted to cover back correctly
+        back: { x: 5, y: 135, width: 65, height: 110 },
         chest: { x: 5, y: 135, width: 45, height: 60 },
         abdomen: { x: 5, y: 195, width: 45, height: 70 },
         legs: { x: 5, y: 265, width: 65, height: 142 }
@@ -31,7 +31,7 @@ const BODY_REGIONS = {
 // Function to apply heatmap color based on intensity
 function getHeatmapColor(intensity) {
     const hue = ((1 - intensity) * 120).toString(10);
-    return `hsla(${hue}, 100%, 50%, 0.8)`; // Adjusted transparency to 0.8
+    return `hsla(${hue}, 100%, 50%, 0.7)`; // Adjusted transparency to 0.7
 }
 
 // Function to draw heatmap on canvas
@@ -55,17 +55,15 @@ function drawHeatmap(canvasId, imageInfo, intensities) {
             if (regions[region]) {
                 const { x, y, width, height } = regions[region];
                 const color = getHeatmapColor(intensity);
-                const [r, g, b, a] = color.match(/\d+/g).map(Number);
+                const [h, s, l, a] = color.match(/\d+/g).map(Number);
 
                 for (let i = y; i < y + height; i++) {
                     for (let j = x; j < x + width; j++) {
                         const index = (i * canvas.width + j) * 4;
-                        if (data[index + 3] === 0) { // Check if pixel is transparent
-                            data[index] = r;
-                            data[index + 1] = g;
-                            data[index + 2] = b;
-                            data[index + 3] = a;
-                        }
+                        data[index] = h;
+                        data[index + 1] = s;
+                        data[index + 2] = l;
+                        data[index + 3] = a * 255 / 100;
                     }
                 }
             }
