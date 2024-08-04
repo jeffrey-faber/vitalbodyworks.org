@@ -31,7 +31,7 @@ const BODY_REGIONS = {
 // Function to apply heatmap color based on intensity
 function getHeatmapColor(intensity) {
     const hue = ((1 - intensity) * 120).toString(10);
-    return `hsla(${hue}, 100%, 50%, 0.5)`;
+    return `hsla(${hue}, 100%, 50%, 0.9)`;
 }
 
 // Function to draw heatmap on canvas
@@ -88,39 +88,39 @@ function fetchDataFromAPI() {
     // This is a mock API response
     return {
         front: {
-            head: 0.2,
-            neck: 0.5,
-            shoulders: 0.8,
-            chest: 0.3,
-            abdomen: 0.1,
-            arms: 0.4,
-            legs: 0.6
+            head: 0.9,
+            neck: 0.9,
+            shoulders: 0.9,
+            chest: 0.9,
+            abdomen: 0.9,
+            arms: 0.9,
+            legs: 0.9
         },
         back: {
-            head: 0.1,
-            neck: 0.7,
+            head: 0.9,
+            neck: 0.9,
             shoulders: 0.9,
-            back: 0.8,
-            arms: 0.3,
-            legs: 0.5
+            back: 0.9,
+            arms: 0.9,
+            legs: 0.9
         },
         left: {
-            head: 0.3,
-            neck: 0.6,
-            shoulders: 0.7,
+            head: 0.9,
+            neck: 0.9,
+            shoulders: 0.9,
             back: 0.9,
-            chest: 0.2,
-            abdomen: 0.1,
-            legs: 0.4
+            chest: 0.9,
+            abdomen: 0.9,
+            legs: 0.9
         },
         right: {
-            head: 0.2,
-            neck: 0.5,
-            shoulders: 0.8,
-            back: 0.7,
-            chest: 0.3,
-            abdomen: 0.2,
-            legs: 0.6
+            head: 0.9,
+            neck: 0.9,
+            shoulders: 0.9,
+            back: 0.9,
+            chest: 0.9,
+            abdomen: 0.9,
+            legs: 0.9
         }
     };
 }
