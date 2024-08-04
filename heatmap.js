@@ -28,11 +28,14 @@ const BODY_REGIONS = {
     }
 };
 
-// Function to apply heatmap color based on intensity
 function getHeatmapColor(intensity) {
-    const hue = ((1 - intensity) * 120).toString(10);
-    return `hsla(${hue}, 100%, 50%, 0.9)`; // Adjusted transparency to 0.9
+    // Transition from green (low intensity) to red (high intensity)
+    const r = Math.floor(255 * intensity);
+    const g = Math.floor(255 * (1 - intensity));
+    return `rgba(${r}, ${g}, 0, 0.9)`; // Adjusted transparency to 0.9
 }
+
+// Other parts of the code remain the same
 
 // Function to draw heatmap on canvas
 function drawHeatmap(canvasId, imageInfo, intensities) {
