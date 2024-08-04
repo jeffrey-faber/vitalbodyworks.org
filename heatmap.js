@@ -35,7 +35,42 @@ function getHeatmapColor(intensity) {
     return `hsla(${hue}, 100%, 50%, 0.9)`; // Corrected line
 }
 
-// Function to draw heatmap on canvas
+function hslaToRgba(hsla) {
+    const hslaParts = hsla.match(/(\d+(\.\d+)?)/g);
+    const h = parseFloat(hslaParts[0]);
+    const s = parseFloat(hslaParts[1]) / 100;
+    const l = parseFloat(hslaParts[2]) / 100;
+    const a = parseFloat(hslaParts[3]);
+
+    let r, g, b;
+
+    if (s === 0) {
+        r = g = b = l; // achromatic
+    } else {
+        const hue2rgb = (p, q, t) => {
+            if (t < 0) t += 1;
+            if (t > 1) t -= 1;
+            if (t < 1 / 6) return p + (q - p) * 6 * t;
+            if (t < 1 / 2) return q;
+            if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+            return p;
+        };
+
+        const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        const p = 2 * l - q;
+        r = hue2rgb(p, q, h / 360);
+        g = hue2rgb(p, q, (h / 360) + 1 / 3);
+        b = hue2rgb(p, q, (h / 360) - 1 / 3);
+    }
+
+    return [
+        Math.round(r * 255),
+        Math.round(g * 255),
+        Math.round(b * 255),
+        Math.round(a * 255)
+    ];
+}
+
 function drawHeatmap(canvasId, imageInfo, intensities) {
     const canvas = document.getElementById(canvasId);
     const ctx = canvas.getContext('2d');
@@ -55,8 +90,8 @@ function drawHeatmap(canvasId, imageInfo, intensities) {
         for (const [region, intensity] of Object.entries(intensities)) {
             if (regions[region]) {
                 const { x, y, width, height } = regions[region];
-                const color = getHeatmapColor(intensity);
-                const [r, g, b, a] = color.match(/\d+/g).map(Number);
+                const hslaColor = getHeatmapColor(intensity);
+                const [r, g, b, a] = hslaToRgba(hslaColor);
 
                 for (let i = y; i < y + height; i++) {
                     for (let j = x; j < x + width; j++) {
@@ -76,6 +111,7 @@ function drawHeatmap(canvasId, imageInfo, intensities) {
     };
     img.src = imageInfo.src;
 }
+
 
 // Function to update all heatmaps based on API data
 function updateHeatmaps(data) {
