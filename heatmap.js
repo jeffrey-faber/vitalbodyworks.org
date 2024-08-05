@@ -9,13 +9,24 @@ const BODY_IMAGES = {
 // Body regions and their corresponding coordinates (adjusted for outline)
 const BODY_REGIONS = {
     frontBackRegions: {
-        head: { x: 60, y: 0, width: 77, height: 80 },
-        neck: { x: 75, y: 80, width: 47, height: 25 },
-        shoulders: { x: 35, y: 105, width: 127, height: 35 },
-        chest: { x: 55, y: 140, width: 87, height: 60 },
-        abdomen: { x: 65, y: 200, width: 67, height: 70 },
-        arms: { x: 10, y: 140, width: 177, height: 170 }, // Adjusted to cover arms correctly
-        legs: { x: 45, y: 270, width: 107, height: 160 }
+        forehead: { x: 83, y: 14, width: 35, height: 19 },
+        jaw: { x: 85, y: 33, width: 30, height: 20 },
+        neck: { x: 80, y: 53, width: 40, height: 20 },
+        shoulders: { x: 50, y: 73, width: 90, height: 30 },
+        pectoralisMuscles: { x: 60, y: 103, width: 70, height: 30 },
+        abdomen: { x: 70, y: 133, width: 50, height: 40 },
+        upperArm: { x: 30, y: 103, width: 40, height: 60 },
+        elbow: { x: 30, y: 163, width: 20, height: 20 },
+        forearm: { x: 30, y: 183, width: 40, height: 40 },
+        wrist: { x: 30, y: 223, width: 20, height: 20 },
+        hand: { x: 30, y: 243, width: 30, height: 30 },
+        pelvis: { x: 70, y: 173, width: 50, height: 30 },
+        hips: { x: 70, y: 203, width: 50, height: 30 },
+        thighs: { x: 60, y: 233, width: 70, height: 50 },
+        knees: { x: 70, y: 283, width: 50, height: 20 },
+        shins: { x: 70, y: 303, width: 50, height: 50 },
+        ankle: { x: 70, y: 353, width: 35, height: 20 },
+        feet: { x: 60, y: 373, width: 50, height: 20 }
     },
     sideRegions: {
         head: { x: 10, y: 0, width: 55, height: 75 },
@@ -125,21 +136,44 @@ function fetchDataFromAPI() {
     // This is a mock API response
     return {
         front: {
-            head: 0.1,
-            neck: 0.2,
-            shoulders: 0.3,
-            chest: 0.4,
-            abdomen: 0.5,
-            arms: 0.7,
-            legs: 0.9
+            forehead: Math.random().toFixed(1),
+            jaw: Math.random().toFixed(1),
+            neck: Math.random().toFixed(1),
+            shoulders: Math.random().toFixed(1),
+            pectoralisMuscles: Math.random().toFixed(1),
+            abdomen: Math.random().toFixed(1),
+            upperArm: Math.random().toFixed(1),
+            elbow: Math.random().toFixed(1),
+            forearm: Math.random().toFixed(1),
+            wrist: Math.random().toFixed(1),
+            hand: Math.random().toFixed(1),
+            pelvis: Math.random().toFixed(1),
+            hips: Math.random().toFixed(1),
+            thighs: Math.random().toFixed(1),
+            knees: Math.random().toFixed(1),
+            shins: Math.random().toFixed(1),
+            ankle: Math.random().toFixed(1),
+            feet: Math.random().toFixed(1)
         },
         back: {
-            head: 0.9,
-            neck: 0.9,
-            shoulders: 0.9,
-            back: 0.9,
-            arms: 0.9,
-            legs: 0.9
+            forehead: Math.random().toFixed(1),
+            jaw: Math.random().toFixed(1),
+            neck: Math.random().toFixed(1),
+            shoulders: Math.random().toFixed(1),
+            pectoralisMuscles: Math.random().toFixed(1),
+            abdomen: Math.random().toFixed(1),
+            upperArm: Math.random().toFixed(1),
+            elbow: Math.random().toFixed(1),
+            forearm: Math.random().toFixed(1),
+            wrist: Math.random().toFixed(1),
+            hand: Math.random().toFixed(1),
+            pelvis: Math.random().toFixed(1),
+            hips: Math.random().toFixed(1),
+            thighs: Math.random().toFixed(1),
+            knees: Math.random().toFixed(1),
+            shins: Math.random().toFixed(1),
+            ankle: Math.random().toFixed(1),
+            feet: Math.random().toFixed(1)
         },
         left: {
             head: 0.9,
