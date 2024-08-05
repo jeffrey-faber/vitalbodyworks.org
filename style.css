@@ -26,16 +26,29 @@ nav a {
 .content {
     padding: 40px 20px;
     text-align: center;
+    min-height: calc(100vh - 160px); /* Adjust for footer height */
 }
 .content h1 {
     margin-top: 0;
+}
+.content h2 {
+    margin-top: 40px;
+}
+.content p, .content ul {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+ul {
+    list-style-type: none; /* Remove dots from list items */
+    padding-left: 0;
 }
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
+    position: static;
     width: 100%;
     bottom: 0;
 }
