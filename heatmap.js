@@ -19,8 +19,8 @@ const BODY_REGIONS = {
         rightUpperArm: { x: 135, y: 115, width: 30, height: 40 },
         leftElbow: { x: 30, y: 145, width: 35, height: 20 },  // Moved slightly outward
         rightElbow: { x: 140, y: 145, width: 35, height: 20 },  // Moved slightly outward
-        leftForearm: { x: 20, y: 175, width: 40, height: 50 },  // Moved further outward
-        rightForearm: { x: 150, y: 175, width: 40, height: 50 },  // Moved further outward
+        leftForearm: { x: 20, y: 170, width: 40, height: 40 },  // Moved further outward
+        rightForearm: { x: 150, y: 170, width: 40, height: 40 },  // Moved further outward
         leftWrist: { x: 20, y: 255, width: 40, height: 15 },  // Moved further outward
         rightWrist: { x: 150, y: 255, width: 40, height: 15 },  // Moved further outward
         leftHand: { x: 15, y: 270, width: 45, height: 25 },  // Moved further outward
