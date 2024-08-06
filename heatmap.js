@@ -43,17 +43,11 @@ const BODY_REGIONS = {
         legs: { x: 5, y: 265, width: 65, height: 142 }
     }
 };
-
 function getHeatmapColor(intensity) {
-    let hue;
-    if (intensity === 0) {
-        hue = 0; // Red (intensity 0)
-        return `hsla(${hue}, 100%, 100%, 1)`; // White for intensity 0
-    } else if (intensity === 1) {
-        hue = 120; // Green (intensity 1)
-        return `hsla(${hue}, 100%, 50%, 1)`; // Green for intensity 1
-    }
-    return `hsla(${hue}, 100%, 50%, 1)`; // Default case
+    const hue = (1 - intensity) * 0; // Hue for white (0 intensity)
+    const saturation = intensity * 100; // Saturation for red (100 intensity)
+    const lightness = 100 - intensity * 50; // Lightness to transition from white to red
+    return `hsla(${hue}, ${saturation}%, ${lightness}%, 1)`;
 }
 
 function hslaToRgba(hsla) {
