@@ -147,24 +147,22 @@ function fetchDataFromAPI() {
             "abdomen": 0.1,
             "leftUpperArm": 0.1,
             "rightUpperArm": 0.1,
-            "leftElbow": 0.1,
-            "rightElbow": 0.1,
-            "leftForearm": 0.7,
-            "rightForearm": 0.7,
-            "leftWrist": 0.8,
-            "rightWrist": 0.8,
+            "leftElbow": 0.2,
+            "rightElbow": 0.2,
+            "leftForearm": 0.3,
+            "rightForearm": 0.3,
+            "leftWrist": 0.6,
+            "rightWrist": 0.6,
             "leftHand": 0.1,
             "rightHand": 0.1,
             "pelvis": 0.1,
             "hips": 0.1,
             "thighs": 0.1,
             "knees": 0.1,
-            "shins": 0.1,
+            "shins": 0.8,
             "ankle": 0.1,
-            "feet": 0.1,
-            "lowerBack": 0.9,
-            "calves": 0.9
-        }      
+            "feet": 0.1
+        }     
          ,
         back:{
             "forehead": 0.5,
