@@ -29,8 +29,8 @@ const BODY_REGIONS = {
         pelvis: { x: 81, y: 195, width: 40, height: 30 },
         thighs: { x: 60, y: 225, width: 80, height: 60 },
         knees: { x: 60, y: 285, width: 80, height: 25 },
-        shins: { x: 60, y: 330, width: 80, height: 30 },
-        ankle: { x: 60, y: 360, width: 80, height:25 },
+        shins: { x: 60, y: 310, width: 80, height: 30 },
+        ankle: { x: 60, y: 340, width: 80, height:25 },
         feet: { x: 60, y: 385, width: 80, height: 35 }
     }    ,    
     sideRegions: {
