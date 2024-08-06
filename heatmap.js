@@ -146,7 +146,7 @@ function fetchDataFromAPI() {
             neck: 0.3,
             shoulders: 0.3,
             pectoralisMuscles: 0.7,
-            abdomen: 0.8,
+            abdomen: 0.1,
             leftUpperArm: 0.7,
             rightUpperArm: 0.7,
             leftElbow: 0.8,
