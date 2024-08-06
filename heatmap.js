@@ -12,7 +12,7 @@ const BODY_REGIONS = {
         forehead: { x: 75, y: 10, width: 50, height: 25 },
         jaw: { x: 75, y: 35, width: 50, height: 40 },
         neck: { x: 80, y: 75, width: 40, height: 20 },
-        shoulders: { x: 50, y: 85, width: 100, height: 20 },
+        shoulders: { x: 50, y: 85, width: 100, height: 30 },
         pectoralisMuscles: { x: 65, y: 115, width: 70, height: 40 },
         abdomen: { x: 70, y: 155, width: 60, height: 60 },
         leftUpperArm: { x: 35, y: 115, width: 30, height: 40 },
