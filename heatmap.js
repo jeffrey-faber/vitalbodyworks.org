@@ -45,7 +45,7 @@ const BODY_REGIONS = {
 };
 
 function getHeatmapColor(intensity) {
-    const hue = (1 - intensity) * 120;
+    const hue = (intensity) * 120;
 
     
     return `hsla(${hue}, 100%, 50%, 0.9)`; // Corrected line
