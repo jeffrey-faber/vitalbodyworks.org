@@ -27,8 +27,8 @@ const BODY_REGIONS = {
         rightHand: { x: 162, y: 215, width: 45, height: 35 },  // Moved further outward
         hips: { x: 55, y: 195, width: 90, height: 30 },
         pelvis: { x: 81, y: 195, width: 40, height: 30 },
-        thighs: { x: 60, y: 225, width: 80, height: 80 },
-        knees: { x: 60, y: 305, width: 80, height: 25 },
+        thighs: { x: 60, y: 225, width: 80, height: 60 },
+        knees: { x: 60, y: 285, width: 80, height: 25 },
         shins: { x: 60, y: 330, width: 80, height: 30 },
         ankle: { x: 60, y: 360, width: 80, height:25 },
         feet: { x: 60, y: 385, width: 80, height: 35 }
