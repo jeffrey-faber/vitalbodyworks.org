@@ -25,8 +25,8 @@ const BODY_REGIONS = {
         rightWrist: { x: 160, y: 200, width: 40, height: 15 },  // Moved further outward
         leftHand: { x: 7, y: 215, width: 45, height: 35 },  // Moved further outward
         rightHand: { x: 162, y: 215, width: 45, height: 35 },  // Moved further outward
-        hips: { x: 80, y: 255, width: 90, height: 40 },
-        pelvis: { x: 55, y: 255, width: 40, height: 40 },
+        pelvis: { x: 61, y: 215, width: 80, height: 40 },
+        hips: { x: 55, y: 255, width: 90, height: 40 },
         thighs: { x: 60, y: 295, width: 80, height: 50 },
         knees: { x: 60, y: 345, width: 80, height: 20 },
         shins: { x: 60, y: 365, width: 80, height: 30 },
@@ -141,29 +141,29 @@ function fetchDataFromAPI() {
     // This is a mock API response
     return {
         front: {
-            forehead: 0.9,
-            jaw: 0.9,
-            neck: 0.3,
-            shoulders: 0.3,
-            pectoralisMuscles: 0.7,
+            forehead: 0.1,
+            jaw: 0.1,
+            neck: 0.1,
+            shoulders: 0.1,
+            pectoralisMuscles: 0.1,
             abdomen: 0.1,
-            leftUpperArm: 0.7,
-            rightUpperArm: 0.7,
-            leftElbow: 0.8,
-            rightElbow: 0.8,
-            leftForearm: 0.6,
-            rightForearm: 0.6,
-            leftWrist: 0.5,
-            rightWrist: 0.5,
-            leftHand: 0.7,
-            rightHand: 0.7,
+            leftUpperArm: 0.1,
+            rightUpperArm: 0.1,
+            leftElbow: 0.1,
+            rightElbow: 0.1,
+            leftForearm: 0.1,
+            rightForearm: 0.1,
+            leftWrist: 0.1,
+            rightWrist: 0.1,
+            leftHand: 0.1,
+            rightHand: 0.1,
             pelvis: 0.9,
-            hips: 0.2,
-            thighs: 0.9,
-            knees: 0.3,
-            shins: 0.5,
-            ankle: 0.7,
-            feet: 0.9
+            hips: 0.5,
+            thighs: 0.1,
+            knees: 0.1,
+            shins: 0.1,
+            ankle: 0.1,
+            feet: 0.1
         }
          ,
         back: {
