@@ -46,7 +46,7 @@ const BODY_REGIONS = {
 
 function getHeatmapColor(intensity) {
     const hue = (1 - intensity) * 120;
-    console.log(hue); // Should print 60
+
     
     return `hsla(${hue}, 100%, 50%, 0.9)`; // Corrected line
 }
@@ -148,15 +148,15 @@ function fetchDataFromAPI() {
             pectoralisMuscles: 0.1,
             abdomen: 0.1,
             leftUpperArm: 0.1,
-            rightUpperArm: 0.2,
+            rightUpperArm: 0.1,
             leftElbow: 0.1,
             rightElbow: 0.4,
             leftForearm: 0.1,
-            rightForearm: 0.6,
+            rightForearm: 0.1,
             leftWrist: 0.1,
-            rightWrist: 0.8,
+            rightWrist: 0.3,
             leftHand: 0.1,
-            rightHand: 1,
+            rightHand: 0.9,
             pelvis: 0.1,
             hips: 0.1,
             thighs: 0.1,
