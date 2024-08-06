@@ -45,8 +45,17 @@ const BODY_REGIONS = {
 };
 
 function getHeatmapColor(intensity) {
-    const hue = (intensity) * 120;
-    return `hsla(${hue}, 100%, 50%, 1)`; // Corrected line
+    let hue;
+    if (intensity < 0.5) {
+        hue = 0; // Red for the first half
+    } else if (intensity < 1) {
+        hue = 0; // Red for the last half
+    } else {
+        hue = 0; // Default to red in case of overflow
+    }
+    
+    const lightness = intensity < 0.5 ? 50 + intensity * 100 : 50 - (intensity - 0.5) * 100;
+    return `hsla(${hue}, 100%, ${lightness}%, 1)`;
 }
 
 function hslaToRgba(hsla) {
