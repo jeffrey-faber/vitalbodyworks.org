@@ -15,16 +15,16 @@ const BODY_REGIONS = {
         shoulders: { x: 55, y: 95, width: 90, height: 20 },
         pectoralisMuscles: { x: 65, y: 115, width: 70, height: 40 },
         abdomen: { x: 70, y: 155, width: 60, height: 60 },
-        leftUpperArm: { x: 45, y: 115, width: 25, height: 60 },  // Adjusted position and height
-        rightUpperArm: { x: 130, y: 115, width: 25, height: 60 },  // Adjusted position and height
-        leftElbow: { x: 45, y: 175, width: 25, height: 20 },  // Adjusted position
-        rightElbow: { x: 130, y: 175, width: 25, height: 20 },  // Adjusted position
-        leftForearm: { x: 45, y: 195, width: 25, height: 50 },  // Adjusted position and height
-        rightForearm: { x: 130, y: 195, width: 25, height: 50 },  // Adjusted position and height
-        leftWrist: { x: 45, y: 245, width: 25, height: 15 },  // Adjusted position
-        rightWrist: { x: 130, y: 245, width: 25, height: 15 },  // Adjusted position
-        leftHand: { x: 45, y: 260, width: 25, height: 25 },  // Adjusted position
-        rightHand: { x: 130, y: 260, width: 25, height: 25 },  // Adjusted position
+        leftUpperArm: { x: 35, y: 115, width: 30, height: 70 },
+        rightUpperArm: { x: 135, y: 115, width: 30, height: 70 },
+        leftElbow: { x: 30, y: 185, width: 35, height: 20 },  // Moved slightly outward
+        rightElbow: { x: 140, y: 185, width: 35, height: 20 },  // Moved slightly outward
+        leftForearm: { x: 25, y: 205, width: 40, height: 50 },  // Moved further outward
+        rightForearm: { x: 145, y: 205, width: 40, height: 50 },  // Moved further outward
+        leftWrist: { x: 20, y: 255, width: 40, height: 15 },  // Moved further outward
+        rightWrist: { x: 150, y: 255, width: 40, height: 15 },  // Moved further outward
+        leftHand: { x: 15, y: 270, width: 45, height: 25 },  // Moved further outward
+        rightHand: { x: 155, y: 270, width: 45, height: 25 },  // Moved further outward
         pelvis: { x: 65, y: 215, width: 70, height: 40 },
         hips: { x: 60, y: 255, width: 80, height: 40 },
         thighs: { x: 60, y: 295, width: 80, height: 50 },
@@ -32,8 +32,7 @@ const BODY_REGIONS = {
         shins: { x: 60, y: 365, width: 80, height: 40 },
         ankle: { x: 60, y: 405, width: 80, height: 20 },
         feet: { x: 60, y: 425, width: 80, height: 25 }
-    }
-    ,    
+    }    ,    
     sideRegions: {
         head: { x: 10, y: 0, width: 55, height: 75 },
         neck: { x: 20, y: 75, width: 35, height: 25 },
