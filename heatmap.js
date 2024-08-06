@@ -48,7 +48,7 @@ function getHeatmapColor(intensity) {
     const hue = (1 - intensity) * 120;
 
     
-    return `hsla(${hue}, 100%, 50%, 0.9)`; // Corrected line
+    return `hsla(${hue}, 100%, 50%, 0.1)`; // Corrected line
 }
 
 function hslaToRgba(hsla) {
@@ -142,28 +142,28 @@ function fetchDataFromAPI() {
     return {
         front: {
             forehead: 0.1,
-            jaw: 0.9,
+            jaw: 0.1,
             neck: 0.1,
             shoulders: 0.9,
             pectoralisMuscles: 0.1,
-            abdomen: 0.9,
-            leftUpperArm: 0.9,
-            rightUpperArm: 0.9,
+            abdomen: 0.1,
+            leftUpperArm: 0.1,
+            rightUpperArm: 0.1,
             leftElbow: 0.1,
             rightElbow: 0.1,
-            leftForearm: 0.9,
-            rightForearm: 0.9,
+            leftForearm: 0.1,
+            rightForearm: 0.1,
             leftWrist: 0.1,
             rightWrist: 0.1,
-            leftHand: 0.9,
-            rightHand: 0.9,
-            pelvis: 0.9,
+            leftHand: 0.1,
+            rightHand: 0.1,
+            pelvis: 0.1,
             hips: 0.1,
-            thighs: 0.9,
+            thighs: 0.1,
             knees: 0.1,
-            shins: 0.9,
+            shins: 0.1,
             ankle: 0.1,
-            feet: 0.9
+            feet: 0.1
         },
         back: {
             forehead: 0.1,
@@ -191,22 +191,22 @@ function fetchDataFromAPI() {
             feet: 0.1
         },
         left: {
-            head: 0.9,
-            neck: 0.9,
-            shoulders: 0.9,
-            back: 0.9,
-            chest: 0.9,
-            abdomen: 0.9,
-            legs: 0.9
+            head: 0.1,
+            neck: 0.1,
+            shoulders: 0.1,
+            back: 0.1,
+            chest: 0.1,
+            abdomen: 0.1,
+            legs: 0.1
         },
         right: {
-            head: 0.9,
-            neck: 0.9,
-            shoulders: 0.9,
-            back: 0.9,
-            chest: 0.9,
-            abdomen: 0.9,
-            legs: 0.9
+            head: 0.1,
+            neck: 0.1,
+            shoulders: 0.1,
+            back: 0.1,
+            chest: 0.1,
+            abdomen: 0.1,
+            legs: 0.1
         }
     };
 }
