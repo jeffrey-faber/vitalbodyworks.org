@@ -28,10 +28,10 @@ const BODY_REGIONS = {
         hips: { x: 55, y: 195, width: 90, height: 30 },
         pelvis: { x: 81, y: 195, width: 40, height: 30 },
         thighs: { x: 60, y: 225, width: 80, height: 60 },
-        knees: { x: 60, y: 285, width: 80, height: 25 },
-        shins: { x: 60, y: 310, width: 80, height: 40 },
-        ankle: { x: 60, y: 350, width: 80, height:25 },
-        feet: { x: 60, y: 375, width: 80, height: 35 }
+        knees: { x: 60, y: 285, width: 80, height: 35 },
+        shins: { x: 60, y: 320, width: 80, height: 40 },
+        ankle: { x: 60, y: 360, width: 80, height:25 },
+        feet: { x: 60, y: 385, width: 80, height: 35 }
     }    ,    
     sideRegions: {
         head: { x: 10, y: 0, width: 55, height: 75 },
