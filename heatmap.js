@@ -100,6 +100,7 @@ async function fetchDataFromAPI(message) {
             })
         });
         const data = await response.json();
+        console.log(data);
         return data.heatmap; // Assuming the response structure contains a 'heatmap' field
     } catch (error) {
         console.error('Error fetching data from API:', error);
