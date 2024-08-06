@@ -43,10 +43,11 @@ const BODY_REGIONS = {
         legs: { x: 5, y: 265, width: 65, height: 142 }
     }
 };
+
 function getHeatmapColor(intensity) {
-    const hue = (1 - intensity) * 0; // Hue for white (0 intensity)
-    const saturation = intensity * 100; // Saturation for red (100 intensity)
-    const lightness = 100 - intensity * 50; // Lightness to transition from white to red
+    const hue = 0; // Red hue
+    const saturation = intensity * 100; // Interpolate between 0% (white) and 100% (red)
+    const lightness = 100 - (intensity * 50); // Interpolate between 100% (white) and 50% (red)
     return `hsla(${hue}, ${saturation}%, ${lightness}%, 1)`;
 }
 
