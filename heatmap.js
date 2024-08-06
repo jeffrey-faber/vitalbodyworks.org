@@ -14,7 +14,7 @@ const BODY_REGIONS = {
         neck: { x: 80, y: 65, width: 40, height: 20 },
         shoulders: { x: 50, y: 85, width: 100, height: 30 },
         pectoralisMuscles: { x: 65, y: 115, width: 70, height: 40 },
-        abdomen: { x:61, y: 155, width: 80, height: 40 },
+        abdomen: { x: 61, y: 155, width: 80, height: 40 },
         leftUpperArm: { x: 35, y: 115, width: 30, height: 40 },
         rightUpperArm: { x: 135, y: 115, width: 30, height: 40 },
         leftElbow: { x: 30, y: 145, width: 35, height: 20 },  // Moved slightly outward
@@ -30,9 +30,9 @@ const BODY_REGIONS = {
         thighs: { x: 60, y: 225, width: 80, height: 60 },
         knees: { x: 60, y: 285, width: 80, height: 35 },
         shins: { x: 60, y: 320, width: 80, height: 40 },
-        ankle: { x: 60, y: 360, width: 80, height:25 },
+        ankle: { x: 60, y: 360, width: 80, height: 25 },
         feet: { x: 60, y: 385, width: 80, height: 35 }
-    }    ,    
+    },
     sideRegions: {
         head: { x: 10, y: 0, width: 55, height: 75 },
         neck: { x: 20, y: 75, width: 35, height: 25 },
@@ -43,6 +43,7 @@ const BODY_REGIONS = {
         legs: { x: 5, y: 265, width: 65, height: 142 }
     }
 };
+
 function getHeatmapColor(intensity) {
     const r = 255; // Red value for the color red
     const g = Math.round((1 - intensity) * 255); // Green interpolates from 255 to 0
@@ -92,8 +93,6 @@ function drawHeatmap(canvasId, imageInfo, intensities) {
     img.src = imageInfo.src;
 }
 
-
-
 // Function to update all heatmaps based on API data
 function updateHeatmaps(data) {
     for (const [view, intensities] of Object.entries(data)) {
@@ -129,9 +128,8 @@ function fetchDataFromAPI() {
             "shins": 0.8,
             "ankle": 0.1,
             "feet": 0.1
-        }     
-         ,
-        back:{
+        },
+        back: {
             "forehead": 0.5,
             "jaw": 0.4,
             "neck": 0.2,
@@ -155,8 +153,7 @@ function fetchDataFromAPI() {
             "shins": 0.5,
             "ankle": 0.5,
             "feet": 0.4
-        }
-        ,
+        },
         left: {
             head: 0.1,
             neck: 0.1,
