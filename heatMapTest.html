@@ -15,10 +15,18 @@
         canvas {
             border: 1px solid #ccc;
         }
+        form {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
-    WAT2?
+    <h1>Massage Therapist Heatmap</h1>
+    <form id="assessmentForm">
+        <label for="message">Enter your message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50">I am a massage therapist with two young kids. Frequent pain in neck and lower back. Have had recent frequent cramping in calves.</textarea><br>
+        <button type="submit">Submit</button>
+    </form>
     <div id="heatmap-container"></div>
     <script src="heatmap.js"></script>
 </body>

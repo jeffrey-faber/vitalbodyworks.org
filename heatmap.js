@@ -1,9 +1,7 @@
 // Constants for image paths and sizes
 const BODY_IMAGES = {
-    front: { src: 'images/frontBody.png', width: 197, height: 430 },
-    back: { src: 'images/backBody.png', width: 197, height: 430 },
-    left: { src: 'images/leftBody.png', width: 75, height: 407 },
-    right: { src: 'images/rightBody.png', width: 75, height: 407 }
+    front: { src: 'images/frontBody.png', width: 197, height: 430 }
+    // Only front is currently working, so other views are ignored
 };
 
 // Body regions and their corresponding coordinates (adjusted for outline)
@@ -17,14 +15,14 @@ const BODY_REGIONS = {
         abdomen: { x: 61, y: 155, width: 80, height: 40 },
         leftUpperArm: { x: 35, y: 115, width: 30, height: 40 },
         rightUpperArm: { x: 135, y: 115, width: 30, height: 40 },
-        leftElbow: { x: 30, y: 145, width: 35, height: 20 },  // Moved slightly outward
-        rightElbow: { x: 140, y: 145, width: 35, height: 20 },  // Moved slightly outward
-        leftForearm: { x: 20, y: 165, width: 40, height: 35 },  // Moved further outward
-        rightForearm: { x: 145, y: 165, width: 40, height: 35 },  // Moved further outward
-        leftWrist: { x: 10, y: 200, width: 40, height: 15 },  // Moved further outward
-        rightWrist: { x: 160, y: 200, width: 40, height: 15 },  // Moved further outward
-        leftHand: { x: 7, y: 215, width: 45, height: 35 },  // Moved further outward
-        rightHand: { x: 162, y: 215, width: 45, height: 35 },  // Moved further outward
+        leftElbow: { x: 30, y: 145, width: 35, height: 20 },
+        rightElbow: { x: 140, y: 145, width: 35, height: 20 },
+        leftForearm: { x: 20, y: 165, width: 40, height: 35 },
+        rightForearm: { x: 145, y: 165, width: 40, height: 35 },
+        leftWrist: { x: 10, y: 200, width: 40, height: 15 },
+        rightWrist: { x: 160, y: 200, width: 40, height: 15 },
+        leftHand: { x: 7, y: 215, width: 45, height: 35 },
+        rightHand: { x: 162, y: 215, width: 45, height: 35 },
         hips: { x: 55, y: 195, width: 90, height: 30 },
         pelvis: { x: 81, y: 195, width: 40, height: 30 },
         thighs: { x: 60, y: 225, width: 80, height: 60 },
@@ -32,15 +30,6 @@ const BODY_REGIONS = {
         shins: { x: 60, y: 320, width: 80, height: 40 },
         ankle: { x: 60, y: 360, width: 80, height: 25 },
         feet: { x: 60, y: 385, width: 80, height: 35 }
-    },
-    sideRegions: {
-        head: { x: 10, y: 0, width: 55, height: 75 },
-        neck: { x: 20, y: 75, width: 35, height: 25 },
-        shoulders: { x: 5, y: 100, width: 65, height: 35 },
-        back: { x: 5, y: 135, width: 65, height: 110 }, // Adjusted to cover back correctly
-        chest: { x: 5, y: 135, width: 45, height: 60 },
-        abdomen: { x: 5, y: 195, width: 45, height: 70 },
-        legs: { x: 5, y: 265, width: 65, height: 142 }
     }
 };
 
@@ -95,109 +84,47 @@ function drawHeatmap(canvasId, imageInfo, intensities) {
 
 // Function to update all heatmaps based on API data
 function updateHeatmaps(data) {
-    for (const [view, intensities] of Object.entries(data)) {
-        drawHeatmap(`${view}Canvas`, BODY_IMAGES[view], intensities);
-    }
+    drawHeatmap('frontCanvas', BODY_IMAGES.front, data.front);
 }
 
-// Mock API function (replace with actual API call in production)
-function fetchDataFromAPI() {
-    // This is a mock API response
-    return {
-        front: {
-            "forehead": 0.1,
-            "jaw": 0.1,
-            "neck": 1,
-            "shoulders": 0.7,
-            "pectoralisMuscles": 0.1,
-            "abdomen": 0,
-            "leftUpperArm": 0.3,
-            "rightUpperArm": 0.3,
-            "leftElbow": 0.2,
-            "rightElbow": 0.2,
-            "leftForearm": 0.5,
-            "rightForearm": 0.5,
-            "leftWrist": 0.8,
-            "rightWrist": 0.8,
-            "leftHand": 0.1,
-            "rightHand": 0.1,
-            "pelvis": 0.4,
-            "hips": 0.6,
-            "thighs": 0.5,
-            "knees": 0.4,
-            "shins": 0.9,
-            "ankle": 0.5,
-            "feet": 0.5
-        },
-        back: {
-            "forehead": 0.5,
-            "jaw": 0.4,
-            "neck": 0.2,
-            "shoulders": 0.3,
-            "pectoralisMuscles": 0.4,
-            "abdomen": 0.7,
-            "leftUpperArm": 0.5,
-            "rightUpperArm": 0.5,
-            "leftElbow": 0.6,
-            "rightElbow": 0.6,
-            "leftForearm": 0.6,
-            "rightForearm": 0.6,
-            "leftWrist": 0.5,
-            "rightWrist": 0.5,
-            "leftHand": 0.5,
-            "rightHand": 0.5,
-            "pelvis": 0.4,
-            "hips": 0.3,
-            "thighs": 0.4,
-            "knees": 0.5,
-            "shins": 0.5,
-            "ankle": 0.5,
-            "feet": 0.4
-        },
-        left: {
-            head: 0.1,
-            neck: 0.1,
-            shoulders: 0.1,
-            back: 0.1,
-            chest: 0.1,
-            abdomen: 0.1,
-            legs: 0.1
-        },
-        right: {
-            head: 0.1,
-            neck: 0.1,
-            shoulders: 0.1,
-            back: 0.1,
-            chest: 0.1,
-            abdomen: 0.1,
-            legs: 0.1
-        }
-    };
+// Function to fetch data from the PHP API
+async function fetchDataFromAPI(message) {
+    try {
+        const response = await fetch('getAssessment.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                'message': message
+            })
+        });
+        const data = await response.json();
+        return data.heatmap; // Assuming the response structure contains a 'heatmap' field
+    } catch (error) {
+        console.error('Error fetching data from API:', error);
+        return null;
+    }
 }
 
 // Initialize the app
-function initApp() {
+async function initApp() {
     const container = document.getElementById('heatmap-container');
 
-    // Create canvases for each view
-    for (const view of Object.keys(BODY_IMAGES)) {
-        const canvas = document.createElement('canvas');
-        canvas.id = `${view}Canvas`;
-        container.appendChild(canvas);
-    }
+    // Create canvas for the front view
+    const canvas = document.createElement('canvas');
+    canvas.id = 'frontCanvas';
+    container.appendChild(canvas);
 
-    // Fetch data and update heatmaps
-    const data = fetchDataFromAPI();
-    updateHeatmaps(data);
-
-    // Add refresh button
-    const refreshButton = document.createElement('button');
-    refreshButton.textContent = 'Refresh Data';
-    refreshButton.onclick = () => {
-        const newData = fetchDataFromAPI();
-        updateHeatmaps(newData);
-    };
-    document.body.appendChild(refreshButton);
+    // Add form submission handler
+    document.getElementById('assessmentForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const message = document.getElementById('message').value;
+        const data = await fetchDataFromAPI(message);
+        if (data) {
+            updateHeatmaps(data);
+        }
+    });
 }
 
 // Call initApp when the window loads
