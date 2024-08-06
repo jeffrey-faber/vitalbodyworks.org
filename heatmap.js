@@ -157,12 +157,12 @@ function fetchDataFromAPI() {
             rightWrist: 0.1,
             leftHand: 0.1,
             rightHand: 0.1,
-            pelvis: 0.9,
-            hips: 0.5,
-            thighs: 0.1,
-            knees: 0.1,
-            shins: 0.1,
-            ankle: 0.1,
+            pelvis: 0.1,
+            hips: 0.1,
+            thighs: 0.3,
+            knees: 0.5,
+            shins: 0.7,
+            ankle: 0.9,
             feet: 0.1
         }
          ,
