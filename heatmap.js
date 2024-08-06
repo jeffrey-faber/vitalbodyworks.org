@@ -14,7 +14,7 @@ const BODY_REGIONS = {
         neck: { x: 80, y: 65, width: 40, height: 20 },
         shoulders: { x: 50, y: 85, width: 100, height: 30 },
         pectoralisMuscles: { x: 65, y: 115, width: 70, height: 40 },
-        abdomen: { x:65, y: 155, width: 70, height: 60 },
+        abdomen: { x:61, y: 155, width: 80, height: 60 },
         leftUpperArm: { x: 35, y: 115, width: 30, height: 40 },
         rightUpperArm: { x: 135, y: 115, width: 30, height: 40 },
         leftElbow: { x: 30, y: 145, width: 35, height: 20 },  // Moved slightly outward
