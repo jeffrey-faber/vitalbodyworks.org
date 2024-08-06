@@ -14,7 +14,7 @@ const BODY_REGIONS = {
         neck: { x: 80, y: 65, width: 40, height: 20 },
         shoulders: { x: 50, y: 85, width: 100, height: 30 },
         pectoralisMuscles: { x: 65, y: 115, width: 70, height: 40 },
-        abdomen: { x:61, y: 155, width: 80, height: 60 },
+        abdomen: { x:61, y: 155, width: 80, height: 40 },
         leftUpperArm: { x: 35, y: 115, width: 30, height: 40 },
         rightUpperArm: { x: 135, y: 115, width: 30, height: 40 },
         leftElbow: { x: 30, y: 145, width: 35, height: 20 },  // Moved slightly outward
@@ -25,7 +25,7 @@ const BODY_REGIONS = {
         rightWrist: { x: 160, y: 200, width: 40, height: 15 },  // Moved further outward
         leftHand: { x: 7, y: 215, width: 45, height: 35 },  // Moved further outward
         rightHand: { x: 162, y: 215, width: 45, height: 35 },  // Moved further outward
-        pelvis: { x: 61, y: 215, width: 80, height: 40 },
+        pelvis: { x: 61, y: 195, width: 80, height: 40 },
         hips: { x: 55, y: 255, width: 90, height: 40 },
         thighs: { x: 60, y: 295, width: 80, height: 50 },
         knees: { x: 60, y: 345, width: 80, height: 20 },
