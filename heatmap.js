@@ -19,12 +19,12 @@ const BODY_REGIONS = {
         rightUpperArm: { x: 135, y: 115, width: 30, height: 40 },
         leftElbow: { x: 30, y: 145, width: 35, height: 20 },  // Moved slightly outward
         rightElbow: { x: 140, y: 145, width: 35, height: 20 },  // Moved slightly outward
-        leftForearm: { x: 20, y: 165, width: 40, height: 40 },  // Moved further outward
-        rightForearm: { x: 145, y: 165, width: 40, height: 40 },  // Moved further outward
-        leftWrist: { x: 10, y: 205, width: 40, height: 15 },  // Moved further outward
-        rightWrist: { x: 160, y: 205, width: 40, height: 15 },  // Moved further outward
-        leftHand: { x: 15, y: 270, width: 45, height: 25 },  // Moved further outward
-        rightHand: { x: 155, y: 270, width: 45, height: 25 },  // Moved further outward
+        leftForearm: { x: 20, y: 165, width: 40, height: 35 },  // Moved further outward
+        rightForearm: { x: 145, y: 165, width: 40, height: 35 },  // Moved further outward
+        leftWrist: { x: 10, y: 200, width: 40, height: 15 },  // Moved further outward
+        rightWrist: { x: 160, y: 200, width: 40, height: 15 },  // Moved further outward
+        leftHand: { x: 7, y: 215, width: 45, height: 25 },  // Moved further outward
+        rightHand: { x: 162, y: 215, width: 45, height: 25 },  // Moved further outward
         pelvis: { x: 65, y: 215, width: 70, height: 40 },
         hips: { x: 60, y: 255, width: 80, height: 40 },
         thighs: { x: 60, y: 295, width: 80, height: 50 },
