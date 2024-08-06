@@ -12,13 +12,13 @@ const BODY_REGIONS = {
         forehead: { x: 75, y: 10, width: 50, height: 25 },
         jaw: { x: 75, y: 35, width: 50, height: 40 },
         neck: { x: 80, y: 75, width: 40, height: 20 },
-        shoulders: { x: 55, y: 95, width: 90, height: 20 },
+        shoulders: { x: 50, y: 85, width: 100, height: 20 },
         pectoralisMuscles: { x: 65, y: 115, width: 70, height: 40 },
         abdomen: { x: 70, y: 155, width: 60, height: 60 },
         leftUpperArm: { x: 35, y: 115, width: 30, height: 40 },
         rightUpperArm: { x: 135, y: 115, width: 30, height: 40 },
-        leftElbow: { x: 30, y: 185, width: 35, height: 20 },  // Moved slightly outward
-        rightElbow: { x: 140, y: 185, width: 35, height: 20 },  // Moved slightly outward
+        leftElbow: { x: 30, y: 145, width: 35, height: 20 },  // Moved slightly outward
+        rightElbow: { x: 140, y: 145, width: 35, height: 20 },  // Moved slightly outward
         leftForearm: { x: 25, y: 205, width: 40, height: 50 },  // Moved further outward
         rightForearm: { x: 145, y: 205, width: 40, height: 50 },  // Moved further outward
         leftWrist: { x: 20, y: 255, width: 40, height: 15 },  // Moved further outward
