@@ -53,8 +53,8 @@ class BodyHeatmapApp {
             // Interpolating from white to yellow
             const factor = intensity / 0.5;
             r = 255;
-            g = Math.round(255 * factor);
-            b = 0;
+            g = 255;
+            b = Math.round(255 * (1 - factor));
         } else {
             // Interpolating from yellow to red
             const factor = (intensity - 0.5) / 0.5;
@@ -68,6 +68,7 @@ class BodyHeatmapApp {
         return [r, g, b, a];
     }
     
+
     drawHeatmap(canvasId, imageInfo, intensities) {
         const canvas = document.getElementById(canvasId);
         const ctx = canvas.getContext('2d');
