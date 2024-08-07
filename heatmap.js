@@ -33,6 +33,11 @@ class BodyHeatmapApp {
                 feet: { x: 60, y: 385, width: 80, height: 35 }
             }
         };
+
+        this.heatmapData = null;
+        this.professionAdvice = '';
+        this.recommendedStretches = '';
+
         this.init();
     }
 
@@ -103,7 +108,7 @@ class BodyHeatmapApp {
             });
             const data = await response.json();
             console.log(data);
-            return data.heatmap; // Assuming the response structure contains a 'heatmap' field
+            return data;
         } catch (error) {
             console.error('Error fetching data from API:', error);
             return null;
@@ -122,7 +127,11 @@ class BodyHeatmapApp {
             const message = document.getElementById('message').value;
             const data = await this.fetchDataFromAPI(message);
             if (data) {
-                this.updateHeatmaps(data);
+                this.heatmapData = data.heatmap;
+                this.professionAdvice = data.professionAdvice;
+                this.recommendedStretches = data.recommendedStretches;
+                this.updateHeatmaps(this.heatmapData);
+                // You can add methods to display professionAdvice and recommendedStretches if needed
             }
         });
     }
