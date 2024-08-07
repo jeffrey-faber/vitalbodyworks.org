@@ -104,5 +104,16 @@
         <button onclick="toggleSoapNotes()">Toggle SOAP Notes</button>
     </div>
     <script src="heatmap.js"></script>
+    <script>
+        // Function to toggle the display of the SOAP notes section
+        function toggleSoapNotes() {
+            const soapNotesBox = document.getElementById('soapNotesBox');
+            if (soapNotesBox.style.display === 'none' || soapNotesBox.style.display === '') {
+                soapNotesBox.style.display = 'block';
+            } else {
+                soapNotesBox.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
