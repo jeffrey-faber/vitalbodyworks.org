@@ -68,11 +68,8 @@
             margin-top: 0;
             color: #444;
         }
-        .soap-notes {
-            display: none;
-        }
         @media print {
-            .soap-notes {
+            #soapNotesBox {
                 display: none !important;
             }
         }
@@ -111,9 +108,6 @@
             <h2>SOAP Notes</h2>
             <p id="soapNotes"></p>
         </div>
-    </div>
-    <div style="text-align: center; margin-top: 20px;">
-        <button onclick="toggleSoapNotes()">Toggle SOAP Notes</button>
     </div>
     <script src="heatmap.js"></script>
 </body>
