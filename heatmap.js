@@ -102,7 +102,7 @@ class BodyHeatmapApp {
     updateAdditionalData() {
         this.professionAdviceBox.textContent = this.professionAdvice;
         this.recommendedStretchesBox.textContent = this.recommendedStretches;
-        this.soapNotesBox.textContent = this.soapNotes;
+        this.soapNotesBox.innerHTML = this.soapNotes;
     }
 
     async fetchDataFromAPI(message) {
