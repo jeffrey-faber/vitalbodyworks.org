@@ -102,9 +102,20 @@ class BodyHeatmapApp {
 
     updateAdditionalData() {
         this.professionAdviceBox.innerHTML = this.professionAdvice;
-        this.recommendedStretchesBox.innerHTML = this.recommendedStretches;
+        
+        // Create a ul element for recommendedStretches
+        const ul = document.createElement('ul');
+        this.recommendedStretches.forEach(stretch => {
+            const li = document.createElement('li');
+            li.textContent = stretch;
+            ul.appendChild(li);
+        });
+        this.recommendedStretchesBox.innerHTML = ''; // Clear any previous content
+        this.recommendedStretchesBox.appendChild(ul); // Append the new ul element
+        
         this.soapNotesBox.innerHTML = this.soapNotes;
     }
+    
 
     async fetchDataFromAPI(message, password) {
         try {
