@@ -69,7 +69,7 @@
             color: #444;
         }
         @media print {
-            #soapNotesBox {
+            .no-print {
                 display: none !important;
             }
         }
@@ -84,7 +84,7 @@
 </head>
 <body>
     <h1>Massage Therapist Heatmap</h1>
-    <form id="assessmentForm">
+    <form id="assessmentForm" class="no-print">
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" required><br>
         <label for="message">Enter your message:</label><br>
@@ -104,7 +104,7 @@
             <h2>Recommended Stretches</h2>
             <p id="recommendedStretches"></p>
         </div>
-        <div class="data-box soap-notes" id="soapNotesBox">
+        <div class="data-box soap-notes no-print" id="soapNotesBox">
             <h2>SOAP Notes</h2>
             <p id="soapNotes"></p>
         </div>
