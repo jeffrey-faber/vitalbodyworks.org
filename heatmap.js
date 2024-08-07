@@ -107,7 +107,7 @@ class BodyHeatmapApp {
         const ul = document.createElement('ul');
         this.recommendedStretches.forEach(stretch => {
             const li = document.createElement('li');
-            li.textContent = stretch;
+            li.innerHTML = stretch;
             ul.appendChild(li);
         });
         this.recommendedStretchesBox.innerHTML = ''; // Clear any previous content
