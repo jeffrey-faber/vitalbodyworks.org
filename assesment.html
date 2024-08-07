@@ -31,7 +31,7 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        textarea {
+        textarea, input[type="password"] {
             width: 80%;
             padding: 10px;
             margin-bottom: 10px;
@@ -76,15 +76,27 @@
                 display: none !important;
             }
         }
+        #spinner {
+            display: none;
+            text-align: center;
+        }
+        #spinner img {
+            width: 50px;
+        }
     </style>
 </head>
 <body>
     <h1>Massage Therapist Heatmap</h1>
     <form id="assessmentForm">
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br>
         <label for="message">Enter your message:</label><br>
         <textarea id="message" name="message" rows="4" cols="50" placeholder="Enter client notes"></textarea><br>
         <button type="submit">Submit</button>
     </form>
+    <div id="spinner">
+        <img src="images/spinner.gif" alt="Loading...">
+    </div>
     <div id="heatmap-container"></div>
     <div class="data-container">
         <div class="data-box" id="professionAdviceBox">
@@ -104,16 +116,5 @@
         <button onclick="toggleSoapNotes()">Toggle SOAP Notes</button>
     </div>
     <script src="heatmap.js"></script>
-    <script>
-        // Function to toggle the display of the SOAP notes section
-        function toggleSoapNotes() {
-            const soapNotesBox = document.getElementById('soapNotesBox');
-            if (soapNotesBox.style.display === 'none' || soapNotesBox.style.display === '') {
-                soapNotesBox.style.display = 'block';
-            } else {
-                soapNotesBox.style.display = 'none';
-            }
-        }
-    </script>
 </body>
 </html>

@@ -1,7 +1,8 @@
 class BodyHeatmapApp {
-    constructor(containerId, formId) {
+    constructor(containerId, formId, spinnerId) {
         this.container = document.getElementById(containerId);
         this.form = document.getElementById(formId);
+        this.spinner = document.getElementById(spinnerId);
         this.professionAdviceBox = document.getElementById('professionAdvice');
         this.recommendedStretchesBox = document.getElementById('recommendedStretches');
         this.soapNotesBox = document.getElementById('soapNotes');
@@ -105,7 +106,7 @@ class BodyHeatmapApp {
         this.soapNotesBox.innerHTML = this.soapNotes;
     }
 
-    async fetchDataFromAPI(message) {
+    async fetchDataFromAPI(message, password) {
         try {
             const response = await fetch('getAssessment.php', {
                 method: 'POST',
@@ -113,7 +114,8 @@ class BodyHeatmapApp {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 body: new URLSearchParams({
-                    'message': message
+                    'message': message,
+                    'password': password
                 })
             });
             const data = await response.json();
@@ -125,6 +127,26 @@ class BodyHeatmapApp {
         }
     }
 
+    async handleFormSubmit(event) {
+        event.preventDefault();
+        const message = document.getElementById('message').value;
+        const password = document.getElementById('password').value;
+
+        this.spinner.style.display = 'block'; // Show spinner
+
+        const data = await this.fetchDataFromAPI(message, password);
+        if (data) {
+            this.heatmapData = data.heatmap;
+            this.professionAdvice = data.professionAdvice;
+            this.recommendedStretches = data.recommendedStretches;
+            this.soapNotes = data.soapNotes;
+            this.updateHeatmaps(this.heatmapData);
+            this.updateAdditionalData();
+        }
+
+        this.spinner.style.display = 'none'; // Hide spinner
+    }
+
     init() {
         // Create canvas for the front view
         const canvas = document.createElement('canvas');
@@ -132,33 +154,11 @@ class BodyHeatmapApp {
         this.container.appendChild(canvas);
 
         // Add form submission handler
-        this.form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const message = document.getElementById('message').value;
-            const data = await this.fetchDataFromAPI(message);
-            if (data) {
-                this.heatmapData = data.heatmap;
-                this.professionAdvice = data.professionAdvice;
-                this.recommendedStretches = data.recommendedStretches;
-                this.soapNotes = data.soapNotes;
-                this.updateHeatmaps(this.heatmapData);
-                this.updateAdditionalData();
-            }
-        });
-    }
-}
-
-// Function to toggle the display of the SOAP notes section
-function toggleSoapNotes() {
-    const soapNotesBox = document.getElementById('soapNotesBox');
-    if (soapNotesBox.style.display === 'none' || soapNotesBox.style.display === '') {
-        soapNotesBox.style.display = 'block';
-    } else {
-        soapNotesBox.style.display = 'none';
+        this.form.addEventListener('submit', this.handleFormSubmit.bind(this));
     }
 }
 
 // Initialize the app when the window loads
 window.onload = () => {
-    const app = new BodyHeatmapApp('heatmap-container', 'assessmentForm');
+    const app = new BodyHeatmapApp('heatmap-container', 'assessmentForm', 'spinner');
 };
