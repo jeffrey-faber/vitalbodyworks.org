@@ -4,7 +4,7 @@ $api_url = 'https://fabers.co/cgpt/api/massageAssessment.php?api_key=2ZSVJfcHa5P
 $api_key = '2ZSVJfcHa5P72x44GBtEtS0opKT9rhYe';
 
 // Check if the message is provided in the POST request
-if (isset($_POST['message']) && isset($_POST['password']) && $_POST['password'] == 'JacIsSuperCute3>') {
+if (isset($_POST['message']) && isset($_POST['password']) && $_POST['password'] == 'JacIsSuperCute<3') {
     $message = $_POST['message'];
 
     // Prepare the data to be sent to the API
