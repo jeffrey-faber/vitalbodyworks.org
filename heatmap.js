@@ -47,14 +47,27 @@ class BodyHeatmapApp {
     }
 
     getHeatmapColor(intensity) {
-        const r = 255; // Red value for the color red
-        const g = Math.round((1 - intensity) * 255); // Green interpolates from 255 to 0
-        const b = Math.round((1 - intensity) * 255); // Blue interpolates from 255 to 0
+        let r, g, b;
+    
+        if (intensity <= 0.5) {
+            // Interpolating from white to yellow
+            const factor = intensity / 0.5;
+            r = 255;
+            g = Math.round(255 * factor);
+            b = 0;
+        } else {
+            // Interpolating from yellow to red
+            const factor = (intensity - 0.5) / 0.5;
+            r = 255;
+            g = Math.round(255 * (1 - factor));
+            b = 0;
+        }
+    
         const a = 255; // Full opacity
-
+    
         return [r, g, b, a];
     }
-
+    
     drawHeatmap(canvasId, imageInfo, intensities) {
         const canvas = document.getElementById(canvasId);
         const ctx = canvas.getContext('2d');
