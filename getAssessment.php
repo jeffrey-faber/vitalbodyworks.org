@@ -1,6 +1,6 @@
 <?php
 // Define the API endpoint and the API key
-$api_url = 'https://fabers.co/cgpt/api/massageAssessment.php';
+$api_url = 'https://fabers.co/cgpt/api/massageAssessment.php?api_key=2ZSVJfcHa5P72x44GBtEtS0opKT9rhYe';
 $api_key = '2ZSVJfcHa5P72x44GBtEtS0opKT9rhYe';
 
 // Check if the message is provided in the POST request
