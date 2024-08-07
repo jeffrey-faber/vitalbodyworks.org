@@ -2,6 +2,8 @@ class BodyHeatmapApp {
     constructor(containerId, formId) {
         this.container = document.getElementById(containerId);
         this.form = document.getElementById(formId);
+        this.professionAdviceBox = document.getElementById('professionAdvice');
+        this.recommendedStretchesBox = document.getElementById('recommendedStretches');
         this.BODY_IMAGES = {
             front: { src: 'images/frontBody.png', width: 197, height: 430 }
             // Only front is currently working, so other views are ignored
@@ -95,6 +97,11 @@ class BodyHeatmapApp {
         this.drawHeatmap('frontCanvas', this.BODY_IMAGES.front, data);
     }
 
+    updateAdditionalData() {
+        this.professionAdviceBox.textContent = this.professionAdvice;
+        this.recommendedStretchesBox.textContent = this.recommendedStretches;
+    }
+
     async fetchDataFromAPI(message) {
         try {
             const response = await fetch('getAssessment.php', {
@@ -131,7 +138,7 @@ class BodyHeatmapApp {
                 this.professionAdvice = data.professionAdvice;
                 this.recommendedStretches = data.recommendedStretches;
                 this.updateHeatmaps(this.heatmapData);
-                // You can add methods to display professionAdvice and recommendedStretches if needed
+                this.updateAdditionalData();
             }
         });
     }
