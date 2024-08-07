@@ -49,17 +49,23 @@ class BodyHeatmapApp {
     getHeatmapColor(intensity) {
         let r, g, b;
     
-        if (intensity <= 0.5) {
+        if (intensity <= 0.33) {
             // Interpolating from white to yellow
-            const factor = intensity / 0.5;
+            const factor = intensity / 0.33;
             r = 255;
             g = 255;
             b = Math.round(255 * (1 - factor));
-        } else {
-            // Interpolating from yellow to red
-            const factor = (intensity - 0.5) / 0.5;
+        } else if (intensity <= 0.66) {
+            // Interpolating from yellow to orange
+            const factor = (intensity - 0.33) / 0.33;
             r = 255;
-            g = Math.round(255 * (1 - factor));
+            g = Math.round(255 * (1 - factor * 0.5)); // Orange is (255, 128, 0)
+            b = 0;
+        } else {
+            // Interpolating from orange to red
+            const factor = (intensity - 0.66) / 0.34;
+            r = 255;
+            g = Math.round(128 * (1 - factor)); // Orange is (255, 128, 0)
             b = 0;
         }
     
@@ -67,7 +73,7 @@ class BodyHeatmapApp {
     
         return [r, g, b, a];
     }
-    
+        
 
     drawHeatmap(canvasId, imageInfo, intensities) {
         const canvas = document.getElementById(canvasId);
