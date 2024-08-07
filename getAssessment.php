@@ -32,7 +32,7 @@ if (isset($_POST['message'])) {
     curl_close($ch);
 
     // Output the response
-    header('Content-Type: application/json');
+   // header('Content-Type: application/json');
     echo $response;
 } else {
     // Handle the case where the message is not provided

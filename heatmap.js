@@ -84,7 +84,8 @@ function drawHeatmap(canvasId, imageInfo, intensities) {
 
 // Function to update all heatmaps based on API data
 function updateHeatmaps(data) {
-    drawHeatmap('frontCanvas', BODY_IMAGES.front, data.front);
+    console.log(data);
+    drawHeatmap('frontCanvas', BODY_IMAGES.front, data);
 }
 
 // Function to fetch data from the PHP API
