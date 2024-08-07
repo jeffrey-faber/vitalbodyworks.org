@@ -68,13 +68,21 @@
             margin-top: 0;
             color: #444;
         }
+        .soap-notes {
+            display: none;
+        }
+        @media print {
+            .soap-notes {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Massage Therapist Heatmap</h1>
     <form id="assessmentForm">
         <label for="message">Enter your message:</label><br>
-        <textarea id="message" name="message" rows="4" cols="50" placeholder="Enter client data."></textarea><br>
+        <textarea id="message" name="message" rows="4" cols="50">I am a massage therapist with two young kids. Frequent pain in neck and lower back. Have had recent frequent cramping in calves.</textarea><br>
         <button type="submit">Submit</button>
     </form>
     <div id="heatmap-container"></div>
@@ -87,6 +95,13 @@
             <h2>Recommended Stretches</h2>
             <p id="recommendedStretches"></p>
         </div>
+        <div class="data-box soap-notes" id="soapNotesBox">
+            <h2>SOAP Notes</h2>
+            <p id="soapNotes"></p>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="toggleSoapNotes()">Toggle SOAP Notes</button>
     </div>
     <script src="heatmap.js"></script>
 </body>
