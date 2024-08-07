@@ -100,8 +100,8 @@ class BodyHeatmapApp {
     }
 
     updateAdditionalData() {
-        this.professionAdviceBox.textContent = this.professionAdvice;
-        this.recommendedStretchesBox.textContent = this.recommendedStretches;
+        this.professionAdviceBox.innerHTML = this.professionAdvice;
+        this.recommendedStretchesBox.innerHTML = this.recommendedStretches;
         this.soapNotesBox.innerHTML = this.soapNotes;
     }
 
