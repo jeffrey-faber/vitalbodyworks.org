@@ -54,17 +54,36 @@
             color: #0A9396;
         }
         .book-now {
-            background-color: #BB3E03;
+            background-color: #000000;
             color: white;
             padding: 10px 20px;
             border: none;
             border-radius: 20px;
             cursor: pointer;
             transition: background-color 0.3s;
-            align-self: flex-end; /* Align button to the bottom */
+            align-self: flex-end; 
         }
         .book-now:hover {
             background-color: #AE2012;
+        }
+        .promo-section {
+            position: relative;
+            background-image: url('images/hands-on-body2.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .promo-text {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 2em;
+            font-family: 'Caudex', serif; /* Apply Caudex font */
         }
     </style>
 </head>
@@ -82,6 +101,12 @@
             <a href="#">Option 5</a>
         </div>
         <button class="book-now">Book Now</button>
+    </div>
+    <div class="promo-section">
+        <div class="promo-text">
+            <h1>Experience the Best Massage Therapy</h1>
+            <p>Relax, rejuvenate, and recharge with our expert massage services. Book your session today!</p>
+        </div>
     </div>
 </body>
 </html>
