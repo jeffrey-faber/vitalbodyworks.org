@@ -17,11 +17,12 @@
         }
         .top-bar {
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* Align items at the top */
             justify-content: space-between;
-            background-color: rgba(233, 216, 166, 0.9); /* Semi-transparent background */
+            background-color: #94d2bd6e; /* New semi-transparent background */
             padding: 10px 20px;
             color: #005F73;
+            height: 100px; /* Make the top bar taller */
         }
         .logo {
             display: flex;
@@ -40,6 +41,7 @@
         .menu {
             display: flex;
             gap: 20px;
+            align-items: flex-end; /* Bottom-align the menu options */
         }
         .menu a {
             color: #005F73;
@@ -58,6 +60,7 @@
             border-radius: 20px;
             cursor: pointer;
             transition: background-color 0.3s;
+            align-self: flex-end; /* Align button to the bottom */
         }
         .book-now:hover {
             background-color: #AE2012;
